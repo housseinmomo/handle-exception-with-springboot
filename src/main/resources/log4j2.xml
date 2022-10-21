@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+        <Property name="LOG_PATTERN_LEVEL">%-5level [admin-app,%X{traceId},%X{spanId}]</Property>
+        <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss.SSS</Property>
+        <Property name="LOG_PATTERN">%clr{%d{${sys:LOG_DATEFORMAT_PATTERN}}}{faint} %clr{${sys:LOG_PATTERN_LEVEL}} %clr{%pid}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}</Property>
+    </Properties>
+    <!-- Type de logs -->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${sys:LOG_PATTERN}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+
+        <!-- pour avoir le format texte des logs -->
+        <Root level="info">
+            <AppenderRef ref="Console" />
+        </Root>
+
+        <!-- La package que l'on veut logger-->
+        <Logger name="com.mugen.customexception.controller" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+    </Loggers>
+</Configuration>

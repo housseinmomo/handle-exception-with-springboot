@@ -20,7 +20,28 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+			<!--  exclusion de la gestion des logs par defaut de spring boot   -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+			<!--  exclusion de la gestion des logs par defaut de spring boot   -->
 		</dependency>
+
+		<!-- Pour log4j2 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.zipkin.brave</groupId>
+			<artifactId>brave-context-log4j2</artifactId>
+			<version>5.13.7</version>
+		</dependency>
+		<!-- Pour log4j2 -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
